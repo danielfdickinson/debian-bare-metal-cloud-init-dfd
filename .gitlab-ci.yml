@@ -1,0 +1,24 @@
+---
+# yamllint disable rule:key-ordering
+stages:
+- checks
+- build
+
+image:
+  name: danielfdickinson/gitlab-debian-ansible-pre-commit:0.2.1
+
+before_script:
+- apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y shellcheck shfmt
+
+checks_a:
+  rules:
+  - if: $CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH =~ /^doci$/ # yamllint disable-line
+  - if: $CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME !~ /doci$/ # yamllint disable-line
+  stage: checks
+  script:
+  - chmod 0700 .
+  - >
+      pre-commit install --install-hooks
+  - >
+      pre-commit run --all-files
+...

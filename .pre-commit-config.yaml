@@ -1,0 +1,121 @@
+---
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+# yamllint disable rule:line-length
+# Initially copied from https://github.com/davidsneighbour/kollitsch.dev/blob/main/.pre-commit-config.yaml
+# cspell:ignore reforme
+# yamllint enable
+fail_fast: true
+minimum_pre_commit_version: 2.18.1
+
+# yamllint disable rule:key-ordering
+repos:
+- repo: "https://github.com/pre-commit/pre-commit-hooks"
+  rev: v4.3.0
+  hooks:
+  - id: check-added-large-files
+  # - Prevent giant files from being committed.
+  - id: check-case-conflict
+  # - checks for files that would conflict in
+  #   case-insensitive filesystems.
+  - id: check-executables-have-shebangs
+  # ensures that (non-binary) executables have a shebang.
+  - id: check-shebang-scripts-are-executable
+  # ensures that (non-binary) files with a shebang are executable.
+  - id: check-merge-conflict
+  # - checks for files that contain merge conflict strings.
+  - id: check-symlinks
+  # - checks for symlinks which do not point to anything.
+  - id: check-vcs-permalinks
+  # - ensures that links to vcs websites are permalinks.
+  - id: destroyed-symlinks
+  # - detects symlinks which are changed to regular
+  # files with a content of a path which that symlink was pointing to.
+  - id: check-toml
+  # checks toml files for parsable syntax.
+  - id: detect-private-key
+  # - detects the presence of private keys.
+  - id: file-contents-sorter
+    files: ^(tests/config/words-.*.txt$)
+    args: [--unique]
+  - id: fix-byte-order-marker
+  # - removes utf-8 byte order marker
+  # - id: forbid-new-submodules
+  # - prevents addition of new git submodules.
+  - id: mixed-line-ending
+  # replaces or checks mixed line ending.
+  # - id: no-commit-to-branch # - don't commit to branch
+  #   args:
+  #   - --branch
+  #   - main
+  #   - --branch
+  #   - "v[0-9].[0-9]" # yamllint disable-line
+  - id: pretty-format-json
+    # - Checks that all your JSON files are pretty. "Pretty"
+    # here means that keys are sorted and indented.
+    args: [--autofix, --indent, "	"]
+  - id: trailing-whitespace
+    exclude: ^(_vendor)
+    args: [--markdown-linebreak-ext=md]
+
+- repo: "https://github.com/igorshubovych/markdownlint-cli"
+  rev: v0.32.1
+  hooks:
+  - id: markdownlint
+    args: [--config, tests/config/markdownlint.json]
+    files: .+\.(md|markdown)$
+
+- repo: "https://github.com/adrienverge/yamllint"
+  rev: v1.26.3
+  hooks:
+  - id: yamllint
+    args: [-c=./tests/config/yamllint.yaml]
+    exclude: ^(_vendor|.*/vault.yml$)
+
+- repo: "https://github.com/zricethezav/gitleaks"
+  rev: v8.15.2
+  hooks:
+  - id: gitleaks
+    args: [-c, ./tests/config/gitleaks.toml]
+
+#  - repo: "https://github.com/jorisroovers/gitlint"
+#    rev: v0.17.0
+#    hooks:
+#     - id: gitlint
+
+- repo: "https://github.com/editorconfig-checker/editorconfig-checker.python"
+  rev: 2.4.0
+  hooks:
+  - id: editorconfig-checker
+    alias: ec
+    args:
+    - -no-color
+    exclude: ^(LICENSE|.*/master.cf(.jinja)?$)
+
+- repo: "https://github.com/shellcheck-py/shellcheck-py"
+  rev: v0.8.0.4
+  hooks:
+  - id: shellcheck
+
+- repo: "https://github.com/scop/pre-commit-shfmt"
+  rev: v3.5.1-1
+  hooks:
+  - id: shfmt
+
+- repo: "https://github.com/streetsidesoftware/cspell-cli"
+  rev: v6.14.1
+  hooks:
+  - id: cspell
+    args:
+    - --config
+    - tests/config/cspell.json
+    - --gitignore
+    - --gitignore-root
+    - --no-cache
+    - --no-must-find-files
+    - --show-context
+    - --show-suggestions
+    - --validate-directives
+    exclude: ^(LICENSE|tests/config/cspell.json|\.gitlab-ci\.yml$) # yamllint disable-line
+# yamllint enable rule:key-ordering
+...

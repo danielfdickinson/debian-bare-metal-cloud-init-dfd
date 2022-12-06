@@ -1,0 +1,62 @@
+---
+# yamllint disable rule:line-length
+# Initially copied from https://github.com/davidsneighbour/kollitsch.dev/blob/main/tests/config/yamllint.yaml
+# yamllint enable
+extends: default
+
+# https://yamllint.readthedocs.io/en/stable/rules.html
+rules:
+  braces: enable
+  brackets: enable
+  colons: enable
+  commas: enable
+  comments:
+    ignore-shebangs: true
+    level: error
+    min-spaces-from-content: 1
+    require-starting-space: true
+  comments-indentation:
+    level: error
+  document-end:
+    level: warning
+  document-start: enable
+  empty-lines:
+    max: 1
+    max-end: 1
+    max-start: 0
+  empty-values: disable
+  hyphens: enable
+  indentation:
+    check-multi-line-strings: true
+    indent-sequences: false
+    spaces: 2
+  key-duplicates: enable
+  key-ordering: disable
+  line-length:
+    max: 80
+  new-line-at-end-of-file: enable
+  new-lines:
+    type: unix
+  octal-values:
+    forbid-explicit-octal: true
+    forbid-implicit-octal: true
+  quoted-strings:
+    # extra-allowed: []
+    # yamllint disable rule:quoted-strings
+    extra-required: [
+      "^http://",
+      "^https://",
+      "^ftp://"
+    ]
+    # yamllint enable
+    quote-type: double
+    # required: false
+    required: only-when-needed
+  trailing-spaces: enable
+  truthy: disable
+
+yaml-files:
+- "*.yaml"
+- "*.yml"
+- "*.md"
+...

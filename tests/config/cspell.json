@@ -1,0 +1,30 @@
+{
+	"$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+	"allowCompoundWords": false,
+	"dictionaries": [
+		"project-words",
+		"project-words-fr"
+	],
+	"dictionaryDefinitions": [
+		{
+			"addWords": true,
+			"language": "en,en-ca,en-gb",
+			"name": "project-words",
+			"path": "./tests/config/words-project.txt"
+		},
+		{
+			"addWords": true,
+			"language": "fr,fr-ca,fr-90",
+			"name": "project-words-fr",
+			"path": "./tests/config/words-fr-project.txt"
+		}
+	],
+	"globRoot": "../..",
+	"ignorePaths": [
+		"./tests/config/cspell.json",
+		"./tests/config/words-*.txt"
+	],
+	"ignoreWords": [],
+	"language": "en,en-gb,en-us",
+	"version": "0.2"
+}

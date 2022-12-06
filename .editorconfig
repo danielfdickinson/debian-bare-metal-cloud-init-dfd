@@ -1,0 +1,46 @@
+# https://editorconfig.org/ for details
+# cspell:ignore badcommand
+
+# Users should set their preferred tab_width in their personal .editorconfig
+# (that is in their home directory) otherwise it defeats our purpose for using
+# tabs (choice of tab size appearance) and in fact can matter for accessibility.
+# As a corollary using tabs to create columnar tables must be avoided in this
+# repository.
+
+root = false
+
+# defaults
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = tab
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# YAML (requires spaces not tabs)
+[*.{yml,yaml}]
+indent_size = 2
+indent_style = space
+
+# Make sure we don't trim hard line breaks
+# Using pre-commit we can clean out unwanted trailing whitespace
+[*.md]
+trim_trailing_whitespace = false
+
+[*.svg]
+insert_final_newline = false
+trim_trailing_whitespace = false
+
+# Ignore problematic file types
+[*.txt]
+ignore = true
+
+# For .sh files specific overrides may be necessary when using HEREDOCS or
+# the like
+# [{path/to/bad/*.sh,path/to/badcommand}]
+# ignore = true
+
+# Ignore "third party" directories
+[{third_party,vendor,_vendor,node_modules}/**]
+ignore = true

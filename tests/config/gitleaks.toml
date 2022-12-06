@@ -1,0 +1,10 @@
+title = "gitleaks custom config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "global allow list"
+paths = [
+	'''.gitsecret/paths/mapping.cfg'''
+]
