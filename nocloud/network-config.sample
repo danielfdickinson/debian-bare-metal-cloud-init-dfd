@@ -1,0 +1,7 @@
+version: 1
+config:
+- name: enp1s0
+  subnets:
+  - type: dhcp
+  type: physical
+# vim:ft=yaml

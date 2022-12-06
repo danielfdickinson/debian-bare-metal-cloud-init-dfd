@@ -1,0 +1,5 @@
+---
+# vim:ft=yaml
+instance-id: iid-manual-ahostname
+hostname: ahostname
+...

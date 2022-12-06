@@ -18,9 +18,9 @@ repos:
   - id: check-case-conflict
   # - checks for files that would conflict in
   #   case-insensitive filesystems.
-  - id: check-executables-have-shebangs
+  # - id: check-executables-have-shebangs
   # ensures that (non-binary) executables have a shebang.
-  - id: check-shebang-scripts-are-executable
+  # - id: check-shebang-scripts-are-executable
   # ensures that (non-binary) files with a shebang are executable.
   - id: check-merge-conflict
   # - checks for files that contain merge conflict strings.
@@ -40,16 +40,16 @@ repos:
     args: [--unique]
   - id: fix-byte-order-marker
   # - removes utf-8 byte order marker
-  # - id: forbid-new-submodules
+  - id: forbid-new-submodules
   # - prevents addition of new git submodules.
   - id: mixed-line-ending
   # replaces or checks mixed line ending.
-  # - id: no-commit-to-branch # - don't commit to branch
-  #   args:
-  #   - --branch
-  #   - main
-  #   - --branch
-  #   - "v[0-9].[0-9]" # yamllint disable-line
+  - id: no-commit-to-branch # - don't commit to branch
+    args:
+    - --branch
+    - main
+    - --branch
+    - "v[0-9].[0-9]" # yamllint disable-line
   - id: pretty-format-json
     # - Checks that all your JSON files are pretty. "Pretty"
     # here means that keys are sorted and indented.
@@ -78,10 +78,10 @@ repos:
   - id: gitleaks
     args: [-c, ./tests/config/gitleaks.toml]
 
-#  - repo: "https://github.com/jorisroovers/gitlint"
-#    rev: v0.17.0
-#    hooks:
-#     - id: gitlint
+- repo: "https://github.com/jorisroovers/gitlint"
+  rev: v0.17.0
+  hooks:
+  - id: gitlint
 
 - repo: "https://github.com/editorconfig-checker/editorconfig-checker.python"
   rev: 2.4.0
@@ -92,15 +92,15 @@ repos:
     - -no-color
     exclude: ^(LICENSE|.*/master.cf(.jinja)?$)
 
-- repo: "https://github.com/shellcheck-py/shellcheck-py"
-  rev: v0.8.0.4
-  hooks:
-  - id: shellcheck
+# - repo: "https://github.com/shellcheck-py/shellcheck-py"
+#   rev: v0.8.0.4
+#   hooks:
+#   - id: shellcheck
 
-- repo: "https://github.com/scop/pre-commit-shfmt"
-  rev: v3.5.1-1
-  hooks:
-  - id: shfmt
+# - repo: "https://github.com/scop/pre-commit-shfmt"
+#   rev: v3.5.1-1
+#   hooks:
+#   - id: shfmt
 
 - repo: "https://github.com/streetsidesoftware/cspell-cli"
   rev: v6.14.1

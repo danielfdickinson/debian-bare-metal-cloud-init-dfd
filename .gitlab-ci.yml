@@ -7,8 +7,8 @@ stages:
 image:
   name: danielfdickinson/gitlab-debian-ansible-pre-commit:0.2.1
 
-before_script:
-- apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y shellcheck shfmt
+# before_script:
+# - echo here
 
 checks_a:
   rules:

@@ -1,3 +1,5 @@
 .gitsecret/keys/random_seed
 !*.secret
-test-secrets/test-secrets.txt
+nocloud/meta-data
+nocloud/network-config
+nocloud/user-data

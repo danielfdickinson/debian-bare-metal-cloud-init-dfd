@@ -1,0 +1,25 @@
+#cloud-config
+# vim:ft=yaml
+apt:
+  add_apt_repo_match: ^nonexistent$
+  conf: "Acquire:http::Proxy \"http://[your-apt-proxy:port]\";"
+  preserve_sources_list: true
+fqdn: ahostname.example.com
+groups:
+- adm
+- sudo
+- sys
+hostname: ahostname
+package_update: true
+package_upgrade: true
+package_reboot_if_required: true
+preserve_hostname: false
+users:
+- name: debian
+  groups: ["adm", "sudo", "sys"]
+  lock_passwd: true
+  shell: /bin/bash
+  ssh_authorized_keys:
+  - an SSH public key
+  sudo: ALL=(ALL) NOPASSWD:ALL
+
