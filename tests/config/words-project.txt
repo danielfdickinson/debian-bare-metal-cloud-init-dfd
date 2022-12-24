@@ -29,6 +29,7 @@ ddev
 dgram
 dmacvicar
 dnsblog
+doci
 dontlognull
 doveadm
 dovenull
