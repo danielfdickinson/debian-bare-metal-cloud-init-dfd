@@ -33,6 +33,7 @@ dontlognull
 doveadm
 dovenull
 endfor
+env
 envname
 errorfile
 forwardfor
@@ -110,6 +111,7 @@ starttls
 sudonp
 tcplog
 tfvars
+thecshore
 tlsmgr
 tlsproxy
 unauth
