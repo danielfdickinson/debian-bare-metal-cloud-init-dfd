@@ -5,7 +5,7 @@ stages:
 - build
 
 image:
-  name: danielfdickinson/gitlab-debian-ansible-pre-commit:0.2.3
+  name: danielfdickinson/gitlab-debian-ansible-pre-commit:0.2.4
 
 workflow:
   rules:
