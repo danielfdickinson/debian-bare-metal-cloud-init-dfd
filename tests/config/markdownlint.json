@@ -8,5 +8,6 @@
 		"heading_line_length": 65,
 		"stern": true,
 		"tables": false
-	}
+	},
+	"MD033": false
 }
