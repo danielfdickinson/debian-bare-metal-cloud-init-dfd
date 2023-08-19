@@ -17,7 +17,7 @@ _Aside_: This method of deployment is much faster at actual deploy time than
 using a `debian-installer` based installation. Of course that is because adding
 packages, setting up users, etc, is work you've done ahead of time, and gets
 applied automagically while you (e.g.) have a coffee. See [my related Ansible
-repository](https://gitlab.com/danielfdickinson/debian-libvirt-ansible-dfd) for
+repository](https://github.com/danielfdickinson/debian-libvirt-ansible-dfd) for
 an example of the main install.
 
 ## Metadata
@@ -28,7 +28,7 @@ Not yet created.
 
 ### Repository URL
 
-<https://gitlab.com/danielfdickinson/debian-bare-metal-cloud-init-dfd>
+<https://github.com/danielfdickinson/debian-bare-metal-cloud-init-dfd>
 
 ## Features and default configuration
 
