@@ -11,7 +11,7 @@ minimum_pre_commit_version: 2.18.1
 # yamllint disable rule:key-ordering
 repos:
 - repo: "https://github.com/pre-commit/pre-commit-hooks"
-  rev: v4.4.0
+  rev: v4.5.0
   hooks:
   - id: check-added-large-files
   # - Prevent giant files from being committed.
@@ -59,21 +59,21 @@ repos:
     args: [--markdown-linebreak-ext=md]
 
 - repo: "https://github.com/igorshubovych/markdownlint-cli"
-  rev: v0.36.0
+  rev: v0.38.0
   hooks:
   - id: markdownlint
     args: [--config, tests/config/markdownlint.json]
     files: .+\.(md|markdown)$
 
 - repo: "https://github.com/adrienverge/yamllint"
-  rev: v1.32.0
+  rev: v1.33.0
   hooks:
   - id: yamllint
     args: [-c=./tests/config/yamllint.yaml]
     exclude: ^(_vendor|.*/vault.yml$)
 
 - repo: "https://github.com/zricethezav/gitleaks"
-  rev: v8.18.0
+  rev: v8.18.1
   hooks:
   - id: gitleaks
     args: [-c, ./tests/config/gitleaks.toml]
@@ -84,7 +84,7 @@ repos:
   - id: gitlint
 
 - repo: "https://github.com/editorconfig-checker/editorconfig-checker.python"
-  rev: 2.7.2
+  rev: 2.7.3
   hooks:
   - id: editorconfig-checker
     alias: ec
@@ -103,7 +103,7 @@ repos:
 #   - id: shfmt
 
 - repo: "https://github.com/streetsidesoftware/cspell-cli"
-  rev: v7.3.0
+  rev: v8.2.0
   hooks:
   - id: cspell
     args:
