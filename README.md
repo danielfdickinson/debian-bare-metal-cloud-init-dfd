@@ -1,5 +1,11 @@
 # DFD Debian Bare Metal Cloud-Init
 
+## ARCHIVED
+
+Updated versions will be on Gitlab at <https://gitlab.com/danielfdickinson/debian-bare-metal-cloud-init>.
+
+## Preface
+
 Daniel F. Dickinson's Cloud-Init deployment for a bare-metal host for a
 'personal infrastructure'. This repository provides the base configuration
 upon which Ansible will build.
