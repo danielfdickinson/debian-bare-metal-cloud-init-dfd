@@ -2,7 +2,8 @@
 
 ## ARCHIVED
 
-Updated versions will be on Gitlab at <https://gitlab.com/danielfdickinson/debian-bare-metal-cloud-init>.
+Updated versions will be on Gitlab at
+<https://gitlab.com/danielfdickinson/debian-bare-metal-cloud-init>.
 
 ## Preface
 
